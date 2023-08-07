@@ -1,0 +1,25 @@
+﻿@model Department
+
+@{
+    Layout = "_MohitLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>DName</th>
+        <th>Loc</th>
+
+    </tr>
+   
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.DName</td>
+            <td>@Model.Loc</td>
+
+        </tr>
+    
+
+</table>

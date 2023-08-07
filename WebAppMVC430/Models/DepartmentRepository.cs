@@ -16,7 +16,7 @@
             throw new NotImplementedException();
         }
 
-        public Department GetDepartmentById(int id)
+        public Department GetDepartmentById(int? id)
         {
             return departments.FirstOrDefault(d => d.Id == id);
 

@@ -5,6 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddMvc(options =>
+{
+    options.EnableEndpointRouting = false;
+});
+
 builder.Services.AddSingleton<IDepartmentRepository, DepartmentRepository>();   
 
 var app = builder.Build();
@@ -24,8 +29,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseMvc(routes =>
+{
+    routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+});
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

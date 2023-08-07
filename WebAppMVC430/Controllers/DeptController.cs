@@ -11,10 +11,22 @@ namespace WebAppMVC430.Controllers
         {
             this.repository = repository; // DI
         }
+        [Route("/departments")]
+        [Route("/mohit")]
+
         public IActionResult Index()
         {
             List<Department> list = repository.GetDepartments();
-            return View(list);
+            ViewData["Title"] = "Department List";
+            ViewData["desc"] = "Department List of SIRCL TECH";
+            return View("depts",list);
+        }
+        public IActionResult Detail(int? id) {
+
+            Department department = repository.GetDepartmentById(id??10);
+            ViewData["Title"] = "Department Detail";
+
+            return View(department);
         }
     }
 }
