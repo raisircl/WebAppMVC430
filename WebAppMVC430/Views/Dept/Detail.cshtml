@@ -5,8 +5,31 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+<div class="container">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h2>Dpeartment Detail</h2>
+            </div>
+            <div class="card-body">
+                <h4>Id: @Model.Id</h4>
+                <h4>Name: @Model.DName</h4>
+                <h4>Loc: @Model.Loc</h4>
 
-<table class="table">
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@*<table class="table">
     <tr>
         <th>Id</th>
         <th>DName</th>
@@ -22,4 +45,4 @@
         </tr>
     
 
-</table>
+</table>*@

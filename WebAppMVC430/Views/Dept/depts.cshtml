@@ -6,12 +6,13 @@
 
 <h1>@ViewData["Title"]</h1>
 <h2>@ViewData["desc"]</h2>
-
-<table class="table">
+<input type="button" class="btn btn-primary" value="click me"/>
+<table class="table table-bordered table-hover table-striped">
 <tr>
         <th>Id</th>
         <th>DName</th>
         <th>Loc</th>
+        <th>Action</th>
 
 </tr>
 @foreach(var dept in Model)
@@ -20,7 +21,11 @@
             <td>@dept.Id</td>
             <td>@dept.DName</td>
             <td>@dept.Loc</td>
-
+            <td>
+                <a href="#" class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </td>
     </tr>
 }
 
