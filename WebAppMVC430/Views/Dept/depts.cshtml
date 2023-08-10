@@ -22,7 +22,9 @@
             <td>@dept.DName</td>
             <td>@dept.Loc</td>
             <td>
-                <a href="#" class="btn btn-primary">View</a>
+                @*<a href="/dept/detail/@dept.Id" class="btn btn-primary">View</a>*@
+                @*@Html.ActionLink("View","Detail","Dept",new {id=dept.Id})*@
+                <a asp-action="detail" asp-controller="Dept" asp-route-id="@dept.Id">View</a>
                 <a href="#" class="btn btn-primary">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </td>
