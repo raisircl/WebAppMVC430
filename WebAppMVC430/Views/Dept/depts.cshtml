@@ -6,7 +6,10 @@
 
 <h1>@ViewData["Title"]</h1>
 <h2>@ViewData["desc"]</h2>
-<input type="button" class="btn btn-primary" value="click me"/>
+@*<img src="~/images/no-image.png" asp-append-version="true" />*@
+
+<a  asp-action="create" asp-controller="dept" class="btn btn-primary">Create Department</a>
+
 <table class="table table-bordered table-hover table-striped">
 <tr>
         <th>Id</th>

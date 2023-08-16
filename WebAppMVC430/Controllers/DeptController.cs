@@ -28,5 +28,19 @@ namespace WebAppMVC430.Controllers
 
             return View(department);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ViewData["Title"] = "Create New Department";
+            return View();  
+        }
+
+        [HttpPost]
+        public IActionResult Create(Department model)
+        {
+            ViewData["Title"] = "Create New Department";
+            return View();
+        }
     }
 }

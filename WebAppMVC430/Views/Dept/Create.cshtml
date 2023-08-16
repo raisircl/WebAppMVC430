@@ -1,0 +1,25 @@
+﻿@model Department
+<form asp-action="create" asp-controller="dept" method="post">
+    <div class="mb-3">
+        <label asp-for="Id" class="form-label">Department No</label>
+        <input type="text" class="form-control" asp-for="Id" >
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="DName" class="form-label">Department Name</label>
+        <input type="text" class="form-control" asp-for="DName">
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Loc" class="form-label">Location</label>
+        <select class="form-select" asp-for="Loc">
+            <option value="0">None</option>
+            <option value="0">SW</option>
+            <option value="0">HW</option>
+            <option value="0">Sales</option>
+
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
