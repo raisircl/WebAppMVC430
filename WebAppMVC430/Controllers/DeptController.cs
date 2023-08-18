@@ -37,10 +37,12 @@ namespace WebAppMVC430.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Department model)
+        public RedirectToActionResult Create(Department model)
         {
             ViewData["Title"] = "Create New Department";
-            return View();
+           Department x= repository.AddDepartment(model);
+
+            return RedirectToAction("Detail", new { id = x.Id });
         }
     }
 }

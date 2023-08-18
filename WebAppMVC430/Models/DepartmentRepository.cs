@@ -6,11 +6,18 @@
         public DepartmentRepository()
         {
 
-            departments.Add(new Department() { Id = 10, DName = "SW", Loc = "PKL" });
-            departments.Add(new Department() { Id = 20, DName = "HW", Loc = "CHD" });
-            departments.Add(new Department() { Id = 30, DName = "Sales", Loc = "MHL" });
-            departments.Add(new Department() { Id = 40, DName = "Android", Loc = "SRS" });
+            departments.Add(new Department() { Id = 10, DName = "SW", Loc = Location.Chandigarh });
+            departments.Add(new Department() { Id = 20, DName = "HW", Loc = Location.Sirsa});
+            departments.Add(new Department() { Id = 30, DName = "Sales", Loc = Location.Mohali });
+            departments.Add(new Department() { Id = 40, DName = "Android", Loc =Location.Panchkula });
         }
+
+        public Department AddDepartment(Department department)
+        {
+           departments.Add(department);
+            return department;
+        }
+
         public void DeleteDepartment(int id)
         {
             throw new NotImplementedException();

@@ -12,13 +12,14 @@
     </div>
     <div class="mb-3">
         <label asp-for="Loc" class="form-label">Location</label>
-        <select class="form-select" asp-for="Loc">
+        <select class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<Location>()"></select>
+       @*  <select class="form-select" asp-for="Loc">
             <option value="0">None</option>
-            <option value="0">SW</option>
-            <option value="0">HW</option>
-            <option value="0">Sales</option>
+            <option value="PKL">Panchkula</option>
+            <option value="MHL">Mohali</option>
+            <option value="CHD">Chandigarh</option>
 
-        </select>
+        </select> *@
 
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
