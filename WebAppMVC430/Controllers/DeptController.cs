@@ -32,6 +32,10 @@ namespace WebAppMVC430.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            CountryRepository countryRepository = new CountryRepository();
+          
+            ViewBag.Countries = countryRepository.GetAll();
+
             ViewData["Title"] = "Create New Department";
             return View();  
         }

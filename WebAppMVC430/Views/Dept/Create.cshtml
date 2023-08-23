@@ -1,4 +1,5 @@
 ﻿@model Department
+
 <form asp-action="create" asp-controller="dept" method="post">
     <div class="mb-3">
         <label asp-for="Id" class="form-label">Department No</label>
@@ -11,8 +12,13 @@
 
     </div>
     <div class="mb-3">
+        <label asp-for="Country" class="form-label">Country</label>
+        <select class="form-select" asp-for="Loc" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+    </div>
+    <div class="mb-3">
         <label asp-for="Loc" class="form-label">Location</label>
         <select class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<Location>()"></select>
+        
        @*  <select class="form-select" asp-for="Loc">
             <option value="0">None</option>
             <option value="PKL">Panchkula</option>
