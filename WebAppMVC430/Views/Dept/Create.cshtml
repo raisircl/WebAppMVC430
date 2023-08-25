@@ -13,11 +13,11 @@
     </div>
     <div class="mb-3">
         <label asp-for="Country" class="form-label">Country</label>
-        <select class="form-select" asp-for="Loc" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+        <select onchange="getCountry()" class="form-select" asp-for="Loc" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
     </div>
     <div class="mb-3">
         <label asp-for="Loc" class="form-label">Location</label>
-        <select class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<Location>()"></select>
+        <select  class="form-select" asp-for="Loc" asp-items="Html.GetEnumSelectList<Location>()"></select>
         
        @*  <select class="form-select" asp-for="Loc">
             <option value="0">None</option>
@@ -30,3 +30,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@section Scripts{
+
+    <script src="~/js/customscript.js"></script>
+}
