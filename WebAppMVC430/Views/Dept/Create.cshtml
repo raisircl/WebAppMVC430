@@ -13,7 +13,11 @@
     </div>
     <div class="mb-3">
         <label asp-for="Country" class="form-label">Country</label>
-        <select onchange="getCountry()" class="form-select" asp-for="Loc" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+        <select onchange="getStates()" class="form-select" asp-for="Country" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="State" class="form-label">States</label>
+        <select class="form-select" asp-for="State"></select>
     </div>
     <div class="mb-3">
         <label asp-for="Loc" class="form-label">Location</label>
