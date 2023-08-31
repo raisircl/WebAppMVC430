@@ -32,21 +32,23 @@ namespace WebAppMVC430.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            CountryRepository countryRepository = new CountryRepository();
-          
-            ViewBag.Countries = countryRepository.GetAll();
+           
 
             ViewData["Title"] = "Create New Department";
             return View();  
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Department model)
+        public IActionResult Create(Department model)
         {
-            ViewData["Title"] = "Create New Department";
-           Department x= repository.AddDepartment(model);
+            if (ModelState.IsValid)
+            {
+                ViewData["Title"] = "Create New Department";
+                Department x = repository.AddDepartment(model);
 
-            return RedirectToAction("Detail", new { id = x.Id });
+                return RedirectToAction("Detail", new { id = x.Id });
+            }
+            return View();
         }
     }
 }

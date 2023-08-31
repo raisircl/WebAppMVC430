@@ -1,14 +1,20 @@
 ﻿@model Department
+@{
+    CountryRepository countryRepository = new CountryRepository();
 
+    ViewBag.Countries = countryRepository.GetAll();
+}
 <form asp-action="create" asp-controller="dept" method="post">
     <div class="mb-3">
         <label asp-for="Id" class="form-label">Department No</label>
-        <input type="text" class="form-control" asp-for="Id" >
+        <input type="hidden" class="form-control" asp-for="Id" />
         
     </div>
     <div class="mb-3">
         <label asp-for="DName" class="form-label">Department Name</label>
         <input type="text" class="form-control" asp-for="DName">
+        <span asp-validation-for="DName" class="text-danger"></span>
+
 
     </div>
     <div class="mb-3">

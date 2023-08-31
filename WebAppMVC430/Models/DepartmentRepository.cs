@@ -14,7 +14,10 @@
 
         public Department AddDepartment(Department department)
         {
-           departments.Add(department);
+            int did=departments.Max(x => x.Id)+1;
+            department.Id= did;
+
+            departments.Add(department);
             return department;
         }
 
