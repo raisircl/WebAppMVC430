@@ -2,7 +2,7 @@
 {
     public enum Location
     {
-        None = 0,
+        None =0,
         Panchkula=1,
         Mohali=2,
         Chandigarh=3,
