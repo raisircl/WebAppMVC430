@@ -10,8 +10,8 @@ builder.Services.AddMvc(options =>
     options.EnableEndpointRouting = false;
 });
 
-builder.Services.AddSingleton<IDepartmentRepository, DepartmentRepository>();   
-
+builder.Services.AddSingleton<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

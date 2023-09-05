@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using WebAppMVC430.Models;
 
 namespace WebAppMVC430.Controllers
@@ -6,10 +7,12 @@ namespace WebAppMVC430.Controllers
     public class DeptController : Controller
     {
         private readonly IDepartmentRepository repository;
+        private readonly ICountryRepository countryRepository;
 
-        public DeptController(IDepartmentRepository repository) 
+        public DeptController(IDepartmentRepository repository, ICountryRepository countryRepository)
         {
             this.repository = repository; // DI
+            this.countryRepository = countryRepository;
         }
         [Route("/departments")]
         [Route("/mohit")]
@@ -32,8 +35,8 @@ namespace WebAppMVC430.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-           
-
+           //var con = countryRepository.GetAll();
+            ViewBag.Countries = countryRepository.GetAll();
             ViewData["Title"] = "Create New Department";
             return View();  
         }
@@ -41,12 +44,19 @@ namespace WebAppMVC430.Controllers
         [HttpPost]
         public IActionResult Create(Department model)
         {
+            
+
+            ViewBag.Countries = countryRepository.GetAll();
+
+            ModelState.Remove("Country");
+            ModelState.Remove("Id");
+
             if (ModelState.IsValid)
             {
                 ViewData["Title"] = "Create New Department";
                 Department x = repository.AddDepartment(model);
 
-                return RedirectToAction("Detail", new { id = x.Id });
+                //return RedirectToAction("Detail", new { id = x.Id });
             }
             return View();
         }

@@ -2,9 +2,10 @@
 document.getElementById("welcome").style.color = "Red";
 
 function getStates() {
-    var e = document.getElementById("Country");
+    var e = document.getElementById("CId");
     var value = e.value;
     var text = e.options[e.selectedIndex].text;
+  
     //alert(`Your Selected ${text} - ${value}`)
     var requestOptions = {
         method: 'GET',
@@ -17,14 +18,14 @@ function getStates() {
            
             var data = JSON.parse(result);
             console.log(data)
-            State.innerHTML = '<option value="default">Select State</option>';
+            States.innerHTML = '<option value="default">Select State</option>';
             for (var x in data) {
                 var state = data[x];
                 //console.log(data[x].name);
                 var option = document.createElement("option");
                 option.value = state.id;
                 option.text = state.name;
-                State.appendChild(option);
+                States.appendChild(option);
 
             }
             //for (const x in data) {
@@ -36,6 +37,13 @@ function getStates() {
             //console.log(data)
         })
         .catch(error => console.log('error', error));
+}
+function getDist() {
+    var e = document.getElementById("States");
+    var value = e.value;
+    var text = e.options[e.selectedIndex].text;
+    console.log(value)
+    document.getElementById("SId").value = value;
 }
 $(document).ready(function () {
     $("#Country").selectedIndex = 0;

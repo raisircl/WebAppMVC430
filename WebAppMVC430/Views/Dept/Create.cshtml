@@ -1,15 +1,17 @@
 ﻿@model Department
 @inject IDepartmentRepository deprepo
-@{
+@* @{
     CountryRepository countryRepository = new CountryRepository();
 
     ViewBag.Countries = countryRepository.GetAll();
-}
+   
+} *@
 <h2>
     Total Depts: 
     @deprepo.GetDepartments().Count.ToString()
 </h2>
 <form asp-action="create" asp-controller="dept" method="post">
+    
     <div class="mb-3">
         <label asp-for="Id" class="form-label">Department No</label>
         <input type="hidden" class="form-control" asp-for="Id" />
@@ -24,11 +26,13 @@
     </div>
     <div class="mb-3">
         <label asp-for="Country" class="form-label">Country</label>
-        <select onchange="getStates()" class="form-select" asp-for="Country" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+        <select onchange="getStates()" class="form-select" asp-for="CId" asp-items="@(new SelectList( ViewBag.Countries,"Id","Name"))"></select>
+       
     </div>
     <div class="mb-3">
-        <label asp-for="State" class="form-label">States</label>
-        <select class="form-select" asp-for="State"></select>
+        <label  class="form-label">States</label>
+        <select class="form-select" id="States" name="States" onchange="getDist()"></select>
+        <input type="hidden" asp-for="SId" value="1"/>
     </div>
     <div class="mb-3">
         <label asp-for="Loc" class="form-label">Location</label>
