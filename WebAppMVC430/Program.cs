@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WebAppMVC430.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,9 +10,13 @@ builder.Services.AddMvc(options =>
 {
     options.EnableEndpointRouting = false;
 });
+builder.Services.AddDbContext<AppDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
+},ServiceLifetime.Singleton);
 
-builder.Services.AddSingleton<IDepartmentRepository, DepartmentRepository>();
-builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
+builder.Services.AddSingleton<IDepartmentRepository, SQLDeptRepository>();
+builder.Services.AddSingleton<ICountryRepository, SqlCountryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
