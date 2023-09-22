@@ -2,9 +2,15 @@
 {
     public class SqlCountryRepository : ICountryRepository
     {
+        private readonly AppDBContext context;
+
+        public SqlCountryRepository(AppDBContext context)
+        {
+            this.context = context;
+        }
         public List<Country> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Countries.ToList();
         }
     }
 }
