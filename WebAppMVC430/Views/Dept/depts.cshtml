@@ -15,6 +15,8 @@
         <th>Id</th>
         <th>DName</th>
         <th>Loc</th>
+        <th>Cover</th>
+
         <th>Action</th>
 
 </tr>
@@ -24,6 +26,8 @@
             <td>@dept.Id</td>
             <td>@dept.DName</td>
             <td>@dept.Loc</td>
+            <td><img src="images/@dept.CoverImage" height="30" width="40"/></td>
+
             <td>
                 @*<a href="/dept/detail/@dept.Id" class="btn btn-primary">View</a>*@
                 @*@Html.ActionLink("View","Detail","Dept",new {id=dept.Id})*@

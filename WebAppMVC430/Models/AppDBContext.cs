@@ -10,5 +10,9 @@ namespace WebAppMVC430.Models
         }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Country> Countries { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }

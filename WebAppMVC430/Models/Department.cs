@@ -21,6 +21,7 @@ namespace WebAppMVC430.Models
 
         [Required(ErrorMessage = "Please enter location name")]
         public Location? Loc { get; set; }
-       
+
+        public string? CoverImage { get; set; }
     }
 }

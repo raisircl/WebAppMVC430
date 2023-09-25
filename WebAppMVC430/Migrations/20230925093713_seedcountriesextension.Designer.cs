@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppMVC430.Models;
 
@@ -11,9 +12,11 @@ using WebAppMVC430.Models;
 namespace WebAppMVC430.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230925093713_seedcountriesextension")]
+    partial class seedcountriesextension
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +77,6 @@ namespace WebAppMVC430.Migrations
 
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CoverImage")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DName")
                         .IsRequired()
